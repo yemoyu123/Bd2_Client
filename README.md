@@ -1,147 +1,66 @@
-# Bd2_Server ฅ(• ω •ฅ)
+# Bd2_Client ฅ(• ω •ฅ)
 
 <p align="center">
   <img src="./assets/A74CA398376649E62945163BA63CAD19_0.gif" alt="Miku Dance" width="200">
   <img src="./assets/D40E811E08889855086CC7C89DE75F0D_0.gif" alt="Blonde Cat Girl Dance" width="200">
 </p>
 
-喵~ 欢迎来到 `Bd2_Server` 的秘密基地！💕 
+喵~ 欢迎来到Bd2客户端的秘密仓库！这里是存放最新客户端的地方哦~ 💕 
 
-这是一个用爱和C#编写的游戏私人服务器项目，致力于为各位主人提供一个稳定、易于搭建和二次开发的游戏世界。
-
-本项目由 `blue` 大大倾心制作，并由 `yemoyu123 (xialuolineko)` 用心维护哦！
-
-![.NET](https://img.shields.io/badge/.NET-8.0-blueviolet)
-![Language](https://img.shields.io/badge/Language-C%23-blue)
-![License](https://img.shields.io/badge/License-GPL_v3-blue.svg)
-![Maintained by](https://img.shields.io/badge/Maintained%20by-yemoyu123-ff69b4)
+> ⚠️ **特别注意 (Special Notice)**
+> 1.  项目仅供学习和体验，**分享可以，但请务必低调，不要去跳脸官方**，否则会影响大家哦！
+> 2.  **严禁任何人将本项目用于商业用途，包括倒卖、二改后出售等行为。** 一经发现，将永久拉黑处理。
+> 
+> 感谢大家的理解与配合，让我们一起维护这个小小的乐园！
 
 ---
 
-## ✨ 项目特点 (Features)
+## 🎮 使用教程 (Usage Tutorial)
 
-* **先进的技术栈**：基于最新的 `.NET 8.0` 构建，享受现代化的开发体验。
-* **优雅的C#**：项目完全使用 C# 编写，代码结构清晰，强大又易于理解喵~
-* **轻量级数据库**：推荐使用 SQLite 作为数据库，无需复杂的安装配置，单个文件就能搞定一切，部署超~简单！
-* **易于扩展**：我们从设计之初就考虑到了二次开发的需求，您可以很方便地在此基础上添加自己的新功能。
+### 📱 手机端教程 (Mobile Tutorial)
 
-## 🔧 环境要求 (Prerequisites)
+1.  **登录准备**：首先，请确保您的网络环境可以访问游戏，建议**开启一个可靠的加速器或者梯子**。
 
-在开始之前，请主人确保您的魔法工坊（开发环境）满足以下条件哦：
+2.  **悬浮窗登录**：进入游戏后，点击屏幕上的**悬浮窗**。
+    * **老朋友请注意**：您之前在PC端注册的数据与手机端是完全互通的，直接登录即可。
+    * **新朋友请注意**：如果您是新注册账号，会提示“您所在的地区无法提供服务”。请联系我（或者群管理）并提供您的**用户名**，为您加入白名单后即可正常注册登录。
 
-* **[.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)** (这是最最核心的魔法能量！)
-* 一个可爱的代码编辑器（比如 **Visual Studio Code** 或者 **Visual Studio 2022**）
-* 对 C# 和 .NET 有一点点了解~ (当然啦，不了解也没关系，人家会引导您的！)
+3.  **进入游戏**：
+    > **‼️ 最最重要的一步！一定要看！**
+    > **一定要先在悬浮窗登录成功，才能点游客登录！**
+    > **一定要先在悬浮窗登录成功，才能点游客登录！**
+    > **一定要先在悬浮窗登录成功，才能点游客登录！**
+    > （重要的事情说三遍喵~ 不然会一直卡在加载界面进不去的哦！）
 
-## 🚀 快速开始 (Getting Started)
+4.  **下载资源**：成功进入游戏主界面后，就可以**关掉加速器**，用您的正常网络来下载游戏所需的大量资源啦，这样速度会更快哦！
 
-想快点把服务跑起来吗？跟着人家的猫爪印一步步来吧！
+5.  **开始玩耍**：资源下载完毕后，就可以正常开始您的冒险之旅了！🚀
 
-1.  **克隆这个魔法仓库**
+### 💻 PC端教程 (PC Tutorial)
 
-    打开您的终端，像念咒语一样输入下面的命令，把项目代码克隆到本地：
-    ```bash
-    git clone [https://github.com/yemoyu123/Bd2_Server.git](https://github.com/yemoyu123/Bd2_Server.git)
+1.  **获取补丁**：请先从群内下载最新的补丁文件压缩包。
+
+2.  **安装补丁**：解压后，按照下面的指示放置文件：
+    * 将 `自定义IP` 文件夹里的 **那两个 `.dll` 文件**，复制并覆盖到游戏目录的 `Browndust2_10000001\BrownDust II_Data\Managed` 文件夹里面。
+    * 将 **另外一个 `.txt` 文件**，放到游戏的根目录，也就是 `Browndust2_10000001` 文件夹里。
+
+3.  **注册登录**：完成文件放置后，启动游戏即可进行注册和登录。
+    * **新朋友请注意**：和手机端一样，新注册账号需要联系我（或者群管理）并提供您的**用户名**来加入白名单，否则会显示地区不可用。
+
+#### ⚙️ **如何删除PC端的自动登录保存？**
+
+如果您想清除PC上的自动登录信息，请按以下步骤操作：
+1.  打开注册表编辑器 (Win+R, 输入 `regedit`)。
+2.  导航到以下路径：
     ```
-
-2.  **进入项目目录**
-
-    施展一个“瞬间移动”，进入我们刚刚克隆好的文件夹：
-    ```bash
-    cd Bd2_Server
+    计算机\HKEY_CURRENT_USER\Software\Gamfs\BrownDust II
     ```
+3.  在右侧找到名为 `IsAutoLogin_` 的值，右键点击它，选择**删除**即可。
 
-3.  **构建项目**
-
-    现在，是时候注入魔力了！运行 `dotnet build` 命令，它会自动下载所有需要的依赖库，并编译整个项目哦！
-    ```bash
-    dotnet build
-    ```
-
-## ⚙️ 配置服务器 (Server Configuration)
-
-喵~ 编译完成后，在第一次运行服务器之前，还需要一些简单的配置哦！
-
-1.  **放置数据库文件**
-
-    请从项目文件夹里找到 `brown_dust.db` 这个数据库文件，然后将它复制到服务器的**根目录**下。
-    
-    (小提示: 这个位置通常是在 `bin/Debug/net8.0` 或者 `bin/Release/net8.0` 文件夹里，和生成的可执行文件放在一起哦！)
-
-2.  **修改 `appsettings.json` 配置文件**
-
-    请打开服务器根目录下的 `appsettings.json` 文件，然后用下面的内容**替换**掉它原来的所有内容，确保服务器能正确地连接到数据库和端口~
-
-    ```json
-    {
-      "Logging": {
-        "LogLevel": {
-          "Default": "Information",
-          "Microsoft.AspNetCore": "Warning"
-        },
-        "Console": {
-          "FormatterName": "simple",
-          "FormatterOptions": {
-            "IncludeScopes": false,
-            "TimestampFormat": "MM-dd HH:mm:ss ",
-            "UseUtcTimestamp": false
-          }
-        }
-      },
-      "Kestrel": {
-        "Endpoints": {
-          "Http": {
-            "Url": "http://*:5000"
-          }
-        }
-      },
-      "GameServer": "[http://127.0.0.1:5000/](http://127.0.0.1:5000/)",
-      "AllowedHosts": "*",
-      "MainDB": "Main",
-      "DBS": [
-        {
-          "ConnId": "Main",
-          "DBType": 2,
-          "Enabled": true,
-          "Connection": "brown_dust.db"
-        },
-        {
-          "ConnId": "Log",
-          "DBType": 2,
-          "Enabled": true,
-          "Connection": "brown_dust.db"
-        }
-      ]
-    }
-    ```
-
-## 🎮 运行服务器 (Running the Server)
-
-完成所有配置后，就可以启动服务器啦！
-
-```bash
-dotnet run
-```
-
-如果控制台出现了一些充满活力的日志信息，那就代表服务器已经成功运行起来啦！恭喜主人！🎉
-
-## 🤝 如何贡献 (Contributing)
-
-人家非常欢迎各位主人为这个项目添砖加瓦！无论是提交代码、报告bug还是提出新想法，人家都会超~开~心~的！
-
-如果您想贡献代码，请遵循以下步骤：
-
-1.  Fork 本仓库
-2.  创建您的新分支 (`git checkout -b feature/AmazingFeature`)
-3.  提交您的更改 (`git commit -m 'Add some AmazingFeature'`)
-4.  将您的分支推送到远程仓库 (`git push origin feature/AmazingFeature`)
-5.  创建一个 Pull Request！
+---
 
 ## ❤️ 致谢 (Credits)
 
 * **制作 (Author):** blue
 * **维护 (Maintainer):** yemoyu123 (xialuolineko)
-
-## 📄 许可证 (License)
-
-该项目采用 **GNU General Public License v3.0** 许可证。详情请参阅项目中的 `LICENSE` 文件。
+* **手机端技术支持 (Mobile Tech Support):** Ruri.
