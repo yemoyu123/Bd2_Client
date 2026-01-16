@@ -1,11 +1,11 @@
 # Bd2_Client ฅ(• ω •ฅ)
 
-<p align="center">
+<div align="center">
   <img src="./assets/A74CA398376649E62945163BA63CAD19_0.gif" alt="Miku Dance" width="200">
   <img src="./assets/D40E811E08889855086CC7C89DE75F0D_0.gif" alt="Blonde Cat Girl Dance" width="200">
-  <br><br>
-  <b>🐧 交流群：555799546</b>
-</p>
+  <br>
+  <h2>🐧QQ交流群：555799546</h2>
+</div>
 
 喵~ 欢迎来到Bd2客户端的秘密仓库！这里是存放最新客户端的地方哦~ 💕 
 
