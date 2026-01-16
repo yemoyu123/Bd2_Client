@@ -4,7 +4,10 @@
   <img src="./assets/A74CA398376649E62945163BA63CAD19_0.gif" alt="Miku Dance" width="200">
   <img src="./assets/D40E811E08889855086CC7C89DE75F0D_0.gif" alt="Blonde Cat Girl Dance" width="200">
   <br>
-  <h2>🐧QQ交流群：555799546</h2>
+  <h2>⚠️ 重要：关于白名单申请问题</h2>
+  <h3>我是最近才看issue的，发现居然有这么多申请白名单的，这段时间会处理掉GitHub上所有有关白名单申请的问题<br>如果有问题请加群 555799546</h3>
+  <br>
+  <h2>🐧 交流群：555799546</h2>
 </div>
 
 喵~ 欢迎来到Bd2客户端的秘密仓库！这里是存放最新客户端的地方哦~ 💕 
