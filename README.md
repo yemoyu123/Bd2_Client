@@ -17,6 +17,7 @@
   <div style="display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
     <img src="./assets/bot_step1.png" alt="演示截图1" height="350" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <img src="./assets/bot_step2.png" alt="演示截图2" height="350" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <img src="./assets/bot_step3.png" alt="演示截图3" height="350" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     </div>
   <br>
 
