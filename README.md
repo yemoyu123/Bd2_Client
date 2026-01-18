@@ -12,6 +12,7 @@
     👇 <b>请进群后严格按以下步骤操作：</b> 👇<br>
     1. 在群里发送指令：<code>查账号</code> 查询自己的当前账号信息<br>
     2. 确认信息无误后，<b>直接 @我</b> 申请白名单即可<br>
+    3. 或者可以通过issue直接申请白名单
   </h3>
   
   <div style="display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
