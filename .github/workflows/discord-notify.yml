@@ -1,0 +1,44 @@
+name: Release Notification
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord Message
+        run: |
+          TITLE="${{ github.event.release.name }}"
+          if [ -z "$TITLE" ]; then TITLE="${{ github.event.release.tag_name }}"; fi
+
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d '{
+                "username": "GitHub Release",
+                "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+                "embeds": [{
+                  "title": "📦 发现新版本: '"$TITLE"'",
+                  "description": "版本 **${{ github.event.release.tag_name }}** 已经发布。\n\n[点击此处查看详情及下载](${{ github.event.release.html_url }})",
+                  "url": "${{ github.event.release.html_url }}",
+                  "color": 2328202,
+                  "fields": [
+                    {
+                      "name": "分支",
+                      "value": "`${{ github.event.release.target_commitish }}`",
+                      "inline": true
+                    },
+                    {
+                      "name": "发布人",
+                      "value": "${{ github.event.release.author.login }}",
+                      "inline": true
+                    }
+                  ],
+                  "footer": {
+                    "text": "来自 ${{ github.repository }} 的自动更新"
+                  },
+                  "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"
+                }]
+              }' \
+          ${{ secrets.DISCORD_WEBHOOK_URL }}
