@@ -10,35 +10,48 @@ jobs:
     steps:
       - name: Send Discord Message
         run: |
+          # 1. 处理标题
           TITLE="${{ github.event.release.name }}"
           if [ -z "$TITLE" ]; then TITLE="${{ github.event.release.tag_name }}"; fi
 
+          # 2. 处理正文描述 (Body)
+          # 使用 jq 处理特殊的换行符和转义字符，并限制长度在 500 字以内防止爆框
+          RAW_BODY=$(cat << 'EOF'
+          ${{ github.event.release.body }}
+          EOF
+          )
+          
+          # 截取前 500 个字符并在末尾添加省略号
+          CLEAN_BODY=$(echo "$RAW_BODY" | head -c 500)
+          if [ ${#RAW_BODY} -gt 500 ]; then CLEAN_BODY="${CLEAN_BODY}..."; fi
+
+          # 3. 发送请求
           curl -H "Content-Type: application/json" \
           -X POST \
-          -d '{
-                "username": "GitHub Release",
-                "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-                "embeds": [{
-                  "title": "📦 发现新版本: '"$TITLE"'",
-                  "description": "版本 **${{ github.event.release.tag_name }}** 已经发布。\n\n[点击此处查看详情及下载](${{ github.event.release.html_url }})",
-                  "url": "${{ github.event.release.html_url }}",
-                  "color": 2328202,
-                  "fields": [
-                    {
-                      "name": "分支",
-                      "value": "`${{ github.event.release.target_commitish }}`",
-                      "inline": true
-                    },
-                    {
-                      "name": "发布人",
-                      "value": "${{ github.event.release.author.login }}",
-                      "inline": true
-                    }
-                  ],
-                  "footer": {
-                    "text": "来自 ${{ github.repository }} 的自动更新"
-                  },
-                  "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"
-                }]
-              }' \
-          ${{ secrets.DISCORD_WEBHOOK_URL }}
+          -d @- << EOF
+          {
+            "username": "Chisato Release Bot",
+            "avatar_url": "https://raw.githubusercontent.com/LycoRecoCoffee/LycoRecoCoffee/main/332dd72418f86c0f1c1cff9481ac0b66be3294a8.jpg",
+            "embeds": [{
+              "title": "$TITLE",
+              "description": "### 更新日志\n> $CLEAN_BODY\n\n[ 查看完整更新并下载附件](${{ github.event.release.html_url }})",
+              "url": "${{ github.event.release.html_url }}",
+              "color": 65280,
+              "fields": [
+                {
+                  "name": "版本",
+                  "value": "\`${{ github.event.release.tag_name }}\`",
+                  "inline": true
+                },
+                {
+                  "name": "分支",
+                  "value": "\`${{ github.event.release.target_commitish }}\`",
+                  "inline": true
+                }
+              ],
+              "footer": {
+                "text": "项目: ${{ github.repository }} | 时间: $(date '+%Y-%m-%d %H:%M')"
+              }
+            }]
+          }
+          EOF
