@@ -9,24 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Discord Message
-        # 使用 env 引入 Secret，确保安全性
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          # ---------------------------------------------------
-          # 1. 准备数据变量
-          # ---------------------------------------------------
-          
-          # 如果 Release 标题为空，则使用 Tag 名
           TITLE="${{ github.event.release.name }}"
           if [ -z "$TITLE" ]; then TITLE="${{ github.event.release.tag_name }}"; fi
           
-          # 获取当前时间
-          CURRENT_TIME=$(date '+%Y-%m-%d %H:%M')
-          
-          # 定义头像 URL
+          CURRENT_TIME=$(date '+%Y/%m/%d %H:%M')
           AVATAR_URL="https://raw.githubusercontent.com/LycoRecoCoffee/LycoRecoCoffee/main/332dd72418f86c0f1c1cff9481ac0b66be3294a8.jpg"
-
           
           jq -n \
             --arg title "$TITLE" \
@@ -38,40 +28,36 @@ jobs:
             --arg time "$CURRENT_TIME" \
             --arg avatar "$AVATAR_URL" \
             '
-            # 在 jq 内部处理字符串截取 (限制 500 字符)
-            ($body | if length > 500 then .[0:497] + "..." else . end) as $clean_body |
+            ($body | if length > 600 then .[0:597] + "..." else . end) as $clean_body |
             
             {
               username: "Chisato Release Bot",
               avatar_url: $avatar,
               embeds: [{
-                title: $title,
-                description: ("### 更新日志\n> " + $clean_body + "\n\n[ 查看完整更新并下载附件](" + $url + ")"),
+                title: ("🚀 " + $title),
+                description: ("**Changelog / 更新日志**\n```md\n" + (if $clean_body == "" then "No content provided." else $clean_body end) + "\n```\n[✨ View on GitHub / 点击查看详情](" + $url + ")"),
                 url: $url,
-                color: 65280,
+                color: 14758456,
                 fields: [
                   { 
-                    name: "版本", 
+                    name: "📌 Version / 版本", 
                     value: ("`" + $version + "`"), 
                     inline: true 
                   },
                   { 
-                    name: "分支", 
+                    name: "🌿 Branch / 分支", 
                     value: ("`" + $branch + "`"), 
                     inline: true 
                   }
                 ],
                 footer: {
-                  text: ("项目: " + $repo + " | 时间: " + $time)
+                  text: ("📁 " + $repo + "  •  ⏰ " + $time),
+                  icon_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                 }
               }]
             }' > payload.json
 
-
-          echo "正在发送 Webhook..."
           curl -f -s -S -H "Content-Type: application/json" \
             -X POST \
             -d @payload.json \
             "$DISCORD_WEBHOOK"
-            
-          echo "发送成功！"
