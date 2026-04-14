@@ -37,7 +37,7 @@ jobs:
                 title: ("🚀 " + $title),
                 description: ("**Changelog / 更新日志**\n```md\n" + (if $clean_body == "" then "No content provided." else $clean_body end) + "\n```\n[✨ View on GitHub / 点击查看详情](" + $url + ")"),
                 url: $url,
-                color: 14758456,
+                color: 16746632,
                 fields: [
                   { 
                     name: "📌 Version / 版本", 
